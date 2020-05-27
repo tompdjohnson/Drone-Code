@@ -42,7 +42,7 @@ privatekey=391
 
 print(colour7)
 
-title="MULTI KEY - RSA Encryption/Decryption Demonstration by Acon1tum 2020"
+title="SINGLE KEY - RSA Encryption/Decryption Demonstration by Acon1tum 2020"
 
 for i in title:
     print(random.choice(randomcolours)+i,end=" ")
