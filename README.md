@@ -17,3 +17,11 @@ Feel free to use any of my code to build your own for non profit device.
 PWM-GPIO-Testing.py
 This is a program to test pulse width modulation of motors installed within the drone. 
 
+PrimeNumberTester.py
+This is a program to test if a number is prime or non-prime.
+
+RSA-Encryption-Decryption-Demo.py
+This program takes a alpha-input and encryptps it using math then takes the encrypted message and decrypts it using math.  Based upon a single public/private key with no authentication. 
+
+dualprimenumber_generator.py
+This program generates two prime numbers using seperate functions wich have individual ranges.  This will be used to generate RSA keys.
