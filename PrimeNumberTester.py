@@ -7,7 +7,7 @@ number=7
 
 # Function Created to test a number to see if its a PRIME Number.
 def isPrime(number):
-    # for loop including math which checks modulus for remainer.
+    # for loop including math which checks the number
     for i in range(2,int(number**0.5)+1):
         # if it does not have a remainder is not a prime.
         if n%i==0:
