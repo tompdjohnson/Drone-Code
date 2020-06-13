@@ -1,0 +1,73 @@
+# SHA256 Timer
+# Generates standard sha256 hash, salted sha256 hash with 100,000 iterations and a salted sha256 hash with 1m iterations and times their creation.
+#
+
+import hashlib, time, binascii
+import datetime
+import random
+import matplotlib.pyplot as plt
+import timeit
+
+
+starthash1=time.time()
+print("")
+print("Generating sha256 Hash with Hashlib")
+message1 = hashlib.new('sha256')
+message1.update(b"helloworld")
+print(message1.hexdigest())
+endhash1 = time.time()
+
+#print(h.digest_size)
+#print(hashlib.algorithms_available)
+print("")
+print("")
+print("Generating Salted sha256 Hash with pbkdf2_hmac 100,000 repatitions")
+starthash2=time.time()
+message2 = hashlib.pbkdf2_hmac('sha256', b'helloworld', b'salt', 100000)
+print(binascii.hexlify(message2))
+endhash2 = time.time()
+
+
+
+print("")
+print("Generating Salted sha256 Hash with pbkdf2_hmac 1,000,000 repatitions")
+starthash3=time.time()
+message3 = hashlib.pbkdf2_hmac('sha256', b'helloworld', b'salt', 1000000)
+print(binascii.hexlify(message3))
+endhash3 = time.time()
+print("")
+print("")
+
+
+
+hash1=0
+hash2=0
+hash3=0
+h1= starthash1 - endhash1
+h2= starthash2 - endhash2
+h3= starthash3 - endhash3
+
+# changing negative results into positive results
+if h1 <0:
+    hash1=abs(h1)
+else:
+    hash1=h1
+if h2 <0:
+    hash2=abs(h2)
+else:
+    hash2=h2
+if h3 <0:
+    hash3=abs(h3)
+else:
+    hash3=h3
+
+
+print (hash1, hash2, hash3)
+
+results=[hash1,hash2,hash3]
+hashes = ["sha256", "sha256-100k", "sha256-1m"]
+plt.xlabel(hashes)
+plt.ylabel(results)
+plt.bar(hashes, results)
+
+plt.show()
