@@ -8,10 +8,11 @@
 
 password = "letmein"
 
+answer = input ("Please enter password >  ")
 
 # simple if/else statement 
 
-if password == "letmein":
+if answer == password:
 	print ("Correct")
 
 else:
